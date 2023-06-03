@@ -1,0 +1,61 @@
+<h2>Sign up</h2>
+
+<%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label "名前" %>
+    <%= f.label "(姓)" %>
+    <%= f.text_field :last_name %>
+    <%= f.label "(名)" %>
+    <%= f.text_field :first_name %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label "フリガナ" %>
+    <%= f.label "(セイ)" %>
+    <%= f.text_field :last_name_kana %>
+    <%= f.label "(メイ)" %>
+    <%= f.text_field :first_name_kana %><br />
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label "郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postal_code %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label "住所" %>
+    <%= f.text_field :address %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label "電話番号(ハイフンなし)" %>
+    <%= f.text_field :telephone_number %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "public/shared/links" %>
