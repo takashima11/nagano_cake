@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
@@ -11,7 +10,12 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
-  namespace :public do
+    get 'items' => 'public/items#index'
+    get 'items/:id' => 'public/items#show', as: 'items/show'
+
+  namespace :admin do
+    resources :items, only: [:new, :create, :index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
     get 'current_customer/show' => 'public/customers#show'

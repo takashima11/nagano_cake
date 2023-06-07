@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h1>商品一覧(全<span><%= @item.count %></span>件)</h1>
+  </div>
+
+  <div class="row">
+    <% @items.each do |item| %>
+    <div>
+      <%= link_to items_path do %>
+        <%= image_tag item.get_image(50,50) %>
+      <% end %><br />
+      <%= item.name %><br />
+      <%= item.price %>
+    </div>
+    <% end %>
+    <%= paginate @item %>
+  </div>
+</div>
