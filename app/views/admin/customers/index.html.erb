@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <h1 class="bg-light">会員一覧</h1>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr class="table-secondary">
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <th><%= customer.id %></th>
+            <th><%= customer.last_name %><%= customer.first_name %></th>
+            <th><%= customer.email %></th>
+            <th></th>
+          </tr>
+        <% end %>
+        <%= paginate @customers %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

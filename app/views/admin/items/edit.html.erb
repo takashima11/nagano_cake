@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <h1>商品編集</h1>
+  </div>
+
+  <div class="row">
+    <%= form_with model: @items, url: admin_item_path do |f| %>
+      <div class="row">
+        <p>商品画像</p>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="row">
+        <p>商品名</p>
+        <%= f.text_field :name %>
+      </div>
+      <div class="row">
+        <p>商品説明</p>
+        <%= f.text_area :introduction %>
+      </div>
+      <div class="row">
+        <p>ジャンル</p>
+
+      </div>
+      <div class="row">
+        <p>税抜価格</p>
+        <%= f.text_field :price %><%= "円" %>
+      </div>
+      <div class="row">
+        <p>販売ステータス</p>
+
+      </div>
+
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
