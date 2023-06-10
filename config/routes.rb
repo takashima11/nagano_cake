@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
+
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+
+
     get 'current_customer/show' => 'public/customers#show'
     get 'current_customer/information/edit' => 'public/customers#edit'
     patch 'current_customer/show' => 'public/customers#update'
