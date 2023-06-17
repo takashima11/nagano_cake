@@ -42,11 +42,17 @@
                     <%= link_to "商品一覧", items_path, class: "btn btn-sm btn-outline-secondary" %>
                   </li>
                   <li class="nav-item ml-5">
+                    <%= link_to "カート", cart_items_path, class: "btn btn-sm btn-outline-secondary" %>
+                  </li>
+                  <li class="nav-item ml-5">
                     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: "btn btn-sm btn-outline-secondary" %>
                   </li>
                 <% else %>
                   <li class="nav-item ml-5">
-                    <%= link_to "About", about_path, class: "btn btn-sm btn-outline-secondary" %>
+                    <%= link_to "だいたい", about_path, class: "btn btn-sm btn-outline-secondary" %>
+                  </li>
+                  <li class="nav-item ml-5">
+                    <%= link_to "商品一覧", items_path, class: "btn btn-sm btn-outline-secondary" %>
                   </li>
                   <li class="nav-item ml-5">
                     <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-sm btn-outline-secondary" %>
