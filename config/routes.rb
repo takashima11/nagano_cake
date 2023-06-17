@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
@@ -14,29 +15,31 @@ Rails.application.routes.draw do
     get 'items/:id' => 'public/items#show', as: 'items/show'
 
   namespace :admin do
+
+      root to: 'homes#top'
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show]
   end
 
-
+  scope module: :public do
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :update, :destroy, :create]
-    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
 
-    get 'current_customer/show' => 'public/customers#show'
-    get 'current_customer/information/edit' => 'public/customers#edit'
-    patch 'current_customer/show' => 'public/customers#update'
-    put 'current_customer/show' => 'public/customers#update'
-    get 'current_customer/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
-    patch 'current_customer/withdrawal' => 'public/customers#withdrawal', as: 'withdrawal'
+    get 'current_customer/show' => 'customers#show'
+    get 'current_customer/information/edit' => 'customers#edit'
+    patch 'current_customer/show' => 'customers#update'
+    put 'current_customer/show' => 'customers#update'
+    get 'current_customer/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'current_customer/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
+    resources :orders, only: [:new, :index, :show, :create]
+    get 'orders/confirm'
+    get 'orders/complete'
 
-    get '/admin' => 'admin/homes#top'
-
-
-
-    root to: 'public/homes#top'
-    get '/about' => 'public/homes#about',as: 'about'
-
+    root to: 'homes#top'
+    get '/about' => 'homes#about',as: 'about'
+  end
 
 end
