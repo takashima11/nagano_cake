@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-    <div class="table table-borderless">
+    <table class="table table-borderless">
       <tbody>
         <%= form_with model: @customer, url: current_customer_show_path do |f| %>
           <tr>
@@ -34,11 +34,13 @@
             <th><%= f.email_field :email %></th><br />
           </tr>
           <tr>
+            <th></th>
             <th><%= f.submit "編集内容を保存", class: "btn btn-success" %></th>
             <th><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></th>
           </tr>
         <% end %>
       </tbody>
-    </div>
+    </table>
 
   </div>
+</div>

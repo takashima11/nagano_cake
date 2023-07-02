@@ -14,13 +14,16 @@
       <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.updated_at.strftime( "%Y/-m/%-d %T" ) %></td>
+          <td>
+            <%= link_to admin_order_path(order) do %>
+              <%= order.updated_at.strftime( "%Y/%m/%d %T" ) %>
+            <% end %>
+          </td>
           <td><%= order.shipping_name %></td>
-          <td></td>
+          <td><%= order.item_quantity %></td>
         </tr>
       <% end %>
       </tbody>
     </table>
   </div>
 </div>
-
