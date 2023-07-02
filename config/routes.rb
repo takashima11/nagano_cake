@@ -34,9 +34,10 @@ Rails.application.routes.draw do
     get 'current_customer/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'current_customer/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :index, :show, :create]
-    get 'orders/confirm'
-    get 'orders/complete'
+
 
     root to: 'homes#top'
     get '/about' => 'homes#about',as: 'about'

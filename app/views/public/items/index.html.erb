@@ -7,12 +7,16 @@
     <% @items.each do |item| %>
     <div>
       <%= link_to items_show_path(item.id) do %>
-        <%= image_tag item.get_image(50,50) %>
+        <%= image_tag item.get_image(100,100) %>
       <% end %><br />
       <%= item.name %><br />
       <%= item.price %>
     </div>
     <% end %>
+
+  </div>
+
+  <div>
     <%= paginate @item %>
   </div>
 </div>

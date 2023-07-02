@@ -2,8 +2,10 @@
 
 <div class="container">
   <div class="row">
-    <p>登録情報</p>
-    <%= link_to "編集する",current_customer_information_edit_path %>
+
+      <p>登録情報</p>
+      <%= link_to "編集する",current_customer_information_edit_path, class: "btn btn-success btn-sm" %>
+
   </div>
 
   <div class="row">
@@ -40,9 +42,10 @@
   </div>
 
   <div class="row">
-    <div>
+
       <p>注文履歴</p>
-    </div>
+      <%= link_to "一覧を見る", orders_path, class: "btn btn-primary btn-sm" %>
+
   </div>
 
 </div>
