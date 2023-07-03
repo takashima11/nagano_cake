@@ -1,29 +1,33 @@
 <div class="container">
-  <div class="row">
-    <h5>注文履歴一覧</h5>
+  <div class="row d-flex justify-content-center mb-3">
+    <div class="col-8">
+      <h5>注文履歴一覧</h5>
+    </div>
   </div>
 
-  <div class="row">
-    <table class="table">
-      <thead>
-        <th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
-      </thead>
+  <div class="row d-flex justify-content-center">
+    <div class="col-8">
+      <table class="table">
+        <thead class="table-secondary">
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+        </thead>
 
-      <tbody>
-      <% @orders.each do |order| %>
-        <tr>
-          <td>
-            <%= link_to admin_order_path(order) do %>
-              <%= order.updated_at.strftime( "%Y/%m/%d %T" ) %>
-            <% end %>
-          </td>
-          <td><%= order.shipping_name %></td>
-          <td><%= order.item_quantity %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td>
+              <%= link_to admin_order_path(order) do %>
+                <%= order.updated_at.strftime( "%Y/%m/%d %T" ) %>
+              <% end %>
+            </td>
+            <td><%= order.shipping_name %></td>
+            <td><%= order.item_quantity %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

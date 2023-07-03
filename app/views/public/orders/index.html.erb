@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row ml-5 pb-5">
     <h5>注文履歴一覧</h5>
   </div>
 
@@ -17,7 +17,7 @@
         <% @orders.each do |order| %>
         <tr>
           <td><%= order.updated_at.strftime( "%Y/%m/%d" ) %></td>
-          <td><%= order.shipping_address %><br /><%= order.shipping_name %></td>
+          <td><%= order.shipping_postal_code %><br /><%= order.shipping_address %><br /><%= order.shipping_name %></td>
           <td>
             <% order.order_details.each do |order_detail| %>
               <%= order_detail.item.name %>
