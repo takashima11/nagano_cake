@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <h5>注文履歴詳細</h5>
+    <h5 class="ml-5 pb-4 pl-5">注文履歴詳細</h5>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <p>注文情報</p>
       <table class="table table-bordered">
         <tbody>
@@ -14,7 +14,7 @@
           </tr>
           <tr>
             <th class="table-active">配送先</th>
-            <td><%= @order.shipping_address %><br /><%= @order.shipping_name %></td>
+            <td><%= @order.shipping_postal_code %><br /><%= @order.shipping_address %><br /><%= @order.shipping_name %></td>
           </tr>
           <tr>
             <th class="table-active">支払方法</th>
@@ -24,7 +24,7 @@
       </table>
     </div>
 
-    <div class="col">
+    <div class="col-5">
       <p>請求情報</p>
       <table class="table table-bordered">
         <tbody>
@@ -37,7 +37,7 @@
             <% end %>
             <td>
               <%= @sum %>
-              <%= @order.order_details.sum(:subtotal) %>
+              <%#= @order.order_details.sum(:subtotal) %>
             </td>
           </tr>
 
@@ -56,7 +56,7 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-8">
       <p>注文内容</p>
       <table class="table table-bordered">
         <thead class="table-active">

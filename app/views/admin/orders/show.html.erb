@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="row">
-    <h5>注文履歴詳細</h5>
+  <div class="row mb-3">
+    <span>　　　　　　　　</span><h5>注文履歴詳細</h5>
   </div>
 
-  <div class="row">
-    <div class="col-2">
+  <div class="row mb-5">
+    <div class="col-2 font-weight-bold">
       <p>購入者</p>
       <p>注文日</p>
       <p>配送先</p><br />
@@ -13,7 +13,7 @@
     <div class="col-10">
       <p><%= link_to @order.shipping_name, admin_customer_path(@order.customer.id) %></p>
       <p><%= @order.updated_at.strftime( "%Y/%m/%d" ) %></p>
-      <p><%= @order.shipping_address %><br />
+      <p>〒<%= @order.shipping_postal_code %><%= @order.shipping_address %><br />
           <%= @order.shipping_name %></p>
       <p><%= @order.payment_method_i18n %></p>
     </div>
@@ -29,7 +29,7 @@
           <th>小計</th>
         </thead>
 
-        <tbody>
+        <tbody class="table-borderless border-bottom">
           <%  @sum = 0 %>
           <% @order.order_details.each do |order_detail| %>
           <tr>

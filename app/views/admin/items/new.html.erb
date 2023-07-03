@@ -1,33 +1,53 @@
 <div class="container">
-  <div class="row">
-    <h3>商品新規登録</h3>
+  <div class="row mb-5">
+    <span>　　　　　　　　　　</span><div class="col ml-5">
+      <h5>商品新規登録</h5>
+    </div>
   </div>
 
   <div class="row">
     <div class="col d-flex justify-content-center">
       <%= form_with model: @item, url: admin_items_path do |f| %>
         <div class="row">
-          <h5>商品画像</h5>
-          <%= f.file_field :image, accept: "image/*" %>
+          <div class="col-4">
+            <p>商品画像</p>
+          </div>
+          <div class="col-8">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
         </div>
         <div class="row">
-          <h5>商品名</h5>
-          <%= f.text_field :name %>
+          <div class="col-4">
+            <p>商品名</p>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :name %>
+          </div>
         </div>
         <div class="row">
-          <h5>商品説明</h5>
-          <%= f.text_area :introduction %>
+          <div class="col-4">
+            <p>商品説明</p>
+          </div>
+          <div class="col-8">
+            <%= f.text_area :introduction %>
+          </div>
         </div>
         <div class="row">
-          <h5>税抜価格</h5>
-          <%= f.text_field :price %>
+          <div class="col-4">
+            <p>税抜価格</p>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :price %>円
+          </div>
         </div>
         <div class="row">
-          <h5>販売ステータス</h5>
+          <div class="col-4">
+            <!--<p>販売ステータス</p>-->
+          </div>
         </div>
 
-        <div class="row">
-          <%= f.submit '新規登録', class: "btn btn-success" %>
+        <div class="row d-flex justify-content-center mt-5">
+          <%= f.submit '新規登録', class: "btn btn-success pl-4 pr-4" %>
         </div>
       <% end %>
     </div>

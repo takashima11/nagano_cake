@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row">
-    <h1>商品一覧</h1>
+  <div class="row mb-4">
+    <h5>商品一覧</h5>
   </div>
 
   <div class="row">
     <table class="table">
-      <thead>
+      <thead class="thead-light">
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -21,13 +21,15 @@
             <th><%= item.id %></th>
             <th><%= link_to item.name, admin_item_path(item) %></th>
             <th><%= item.price %></th>
-            <th></th>
-            <th></th>
+            <!--<th></th>-->
+            <!--<th></th>-->
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-  <%= paginate @items %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @items %>
+  </div>
 </div>
 

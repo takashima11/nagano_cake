@@ -1,28 +1,31 @@
 <div class="container">
-  <div class="row">
-    <h1>商品詳細</h1>
+  <div class="row mb-5">
+    <span>　　　　　　　　　</span><h5>商品詳細</h5>
   </div>
 
   <div class="row">
-    <div class="col">
-      <%= image_tag @items.get_image(50,50) %>
+    <div class="col-4 d-flex justify-content-center">
+      <%= image_tag @items.get_image(150,150) %>
     </div>
-    <div class="col">
+    <div class="col-2">
       <p>商品名</p>
       <p>商品説明</p>
-      <p>ジャンル</p>
+      <!--<p>ジャンル</p>-->
       <p>税込価格<br>
          (税抜価格)</p>
       <!--<p>販売ステータス</p>-->
     </div>
 
-    <div class="col">
+    <div class="col-5">
       <p><%= @items.name %></p>
       <p><%= @items.introduction %></p>
-      <p></p><br /><br />
-      <p><%= (@items.price * 1.1).floor %><span>(</span><%= @items.price %><span>)</span></p>
+      <!--<p></p><br /><br />-->
+      <p class="mt-4"><%= (@items.price * 1.1).floor %><span>(</span><%= @items.price %><span>)</span>円</p>
     </div>
   </div>
-  <%= link_to "編集する", edit_admin_item_path(@items), class: "btn btn-success" %>
+
+  <div class="d-flex justify-content-center mt-5">
+    <%= link_to "編集する", edit_admin_item_path(@items), class: "btn btn-success" %>
+  </div>
 </div>
 
