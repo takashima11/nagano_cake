@@ -1,46 +1,45 @@
 <div class="container">
-  <div class="row">
+  <div class="row mb-4">
     <h4 class="ml-5">会員情報編集</h4>
   </div>
 
   <div class="row">
-    <table class="table table-borderless">
-      <tbody>
-        <%= form_with model: @customer, url: current_customer_show_path do |f| %>
-          <tr>
-            <th><%= "氏名" %></th>
-            <td><%= f.text_field :last_name %></td>
-            <td><%= f.text_field :first_name %></td><br />
-          </tr>
-          <tr>
-            <th><%= "フリガナ" %></th>
-            <th><%= f.text_field :last_name_kana %></th>
-            <th><%= f.text_field :first_name_kana %></th><br />
-          </tr>
-          <tr>
-            <th><%= "郵便番号" %></th>
-            <th><%= f.text_field :postal_code %></th><br />
-          </tr>
-          <tr>
-            <th><%= "住所" %></th>
-            <th><%= f.text_field :address %></th><br />
-          </tr>
-          <tr>
-            <th><%= "電話番号" %></th>
-            <th><%= f.text_field :telephone_number %></th><br />
-          </tr>
-          <tr>
-            <th><%= "メールアドレス" %></th>
-            <th><%= f.email_field :email %></th><br />
-          </tr>
-          <tr>
-            <th></th>
-            <th><%= f.submit "編集内容を保存", class: "btn btn-success" %></th>
-            <th><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></th>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+    <%= form_with model: @customer, url: current_customer_show_path do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+            <tr>
+              <th><%= "氏名" %></th>
+              <td class="pl-5 pr-4"><%= f.text_field :last_name %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <th><%= "フリガナ" %></th>
+              <th class="pl-5 pr-4"><%= f.text_field :last_name_kana %></th>
+              <th><%= f.text_field :first_name_kana %></th>
+            </tr>
+            <tr>
+              <th><%= "郵便番号" %></th>
+              <th class="pl-5"><%= f.text_field :postal_code %></th>
+            </tr>
+            <tr>
+              <th><%= "住所" %></th>
+              <th class="pl-5"><%= f.text_field :address %></th>
+            </tr>
+            <tr>
+              <th><%= "電話番号" %></th>
+              <th class="pl-5"><%= f.text_field :telephone_number %></th>
+            </tr>
+            <tr>
+              <th><%= "メールアドレス" %></th>
+              <th class="pl-5"><%= f.email_field :email %></th>
+            </tr>
+            <tr>
+              <th></th>
+              <th class="px-5"><%= f.submit "編集内容を保存", class: "btn btn-success" %></th>
+              <th class="d-flex justify-content-end"><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></th>
+            </tr>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>

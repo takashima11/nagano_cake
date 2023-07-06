@@ -16,8 +16,10 @@
       <div class="row">
         <% @items.first(4).each do |item| %>
         <div class="p-2 flex-shrink-1 bd-highlight">
-          <%= image_tag item.get_image(100,100) %><br>
-          <%= link_to item.name, admin_item_path(item) %><br />
+          <%= link_to items_show_path(item.id) do %>
+            <%= image_tag item.get_image(100,100) %><br>
+          <% end %>
+          <%= item.name %><br />
           ¥<%= item.price %>
         </div>
         <% end %>
